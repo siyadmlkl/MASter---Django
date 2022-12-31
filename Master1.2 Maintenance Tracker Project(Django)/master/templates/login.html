@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="main">
+    <form method="POST" action="">
+        {%csrf_token%}
+
+        <div class="mb-3 row">
+            <div class="form-floating col-sm-4 col-form-label">
+                <input type="text" name="username" class="form-control">
+                <label class="col-form-label">Username</label>
+            </div>
+            <div class="form-floating col-sm-4 col-form-label">
+                <input type="password" name="password" class="form-control">
+                <label class="col-form-label">Password</label>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <button class="btn btn-secondary" type="submit">Login</button>
+        </div>
+
+    </form>
+    <div>
+        {%for message in messages%}
+        <p><strong>{{message}}</strong></p>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

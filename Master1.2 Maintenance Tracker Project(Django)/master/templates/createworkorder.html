@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block content%}
+<div class="main-1">
+    <h3>MASter Work Order Management - Create Work Order</h3>
+</div>
+<div class="main">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="mb-6 row">
+            <div class="form-floating col-sm-4 col-form-label">
+                <select class="form-select" name="area" id="area">
+                    <option disabled="true" selected>-----</option>
+                    {% for area in areas %}
+                    <option value="{{area.area}}">{{area.area}}</option>
+                    {% endfor %}
+                </select>
+                <label class="col-form-label">Area</label>
+            </div>
+        
+            <div class="form-floating col-sm-4 col-form-label">
+                <select class="form-select" name="location" id="location">
+                    <option disabled="true" selected>-----</option>
+                </select>
+                <label class="col-form-label">Location</label>
+            </div>
+
+            <div class="form-floating col-sm-4 col-form-label"> 
+                <select class="form-select" name="asset" id="asset">
+                    <option disabled="true" selected>-----</option>
+                </select>
+                <label class="col-form-label">Asset</label>
+            </div>
+        
+            <div class="mb-3 row">
+                <div class="form-floating col-sm-4 col-form-label">
+                    <input type="datetime" name="createdBy" class="form-control">
+                    <label class="col-form-label">Created By</label>
+                </div>
+                <div class="form-floating col-sm-4 col-form-label">
+                    <input type="text" name="status" class="form-control">
+                    <label class="col-form-label">Status</label>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="form-floating col-sm-12 col-form-label">
+                    <input type="text" name="description" class="form-control">
+                    <label class="col-form-label">Description</label>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="form-floating col-sm-12 col-form-label">
+                    <input type="text" name="action" class="form-control">
+                    <label class="col-form-label">Action</label>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="form-floating col-sm-6 col-form-label">
+                    <input type="file" name="imagefile" class="form-control">
+                    <label class="col-form-label">Image</label>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <button class="btn btn-secondary" type="submit">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}
+
+{% block footer %}
+<script src="{% static 'javascript/create.js' %}"></script>
+{% endblock %}

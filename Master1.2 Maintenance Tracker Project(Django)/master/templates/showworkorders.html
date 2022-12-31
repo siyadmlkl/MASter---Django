@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block content%}
+<div>
+    <ul style="overflow: auto; background-color:ghostwhite">
+        <li class="menu">
+            <select class="show-dd form-select" name="area" id="area">
+                <option selected>Area</option>
+                {% for area in areas%}
+                <option value="">{{area}}</option>
+                {% endfor %}
+            </select>
+        </li>
+        <li class="menu">
+            <select class="show-dd form-select" name="location" id="location">
+                <option selected>Location</option>
+            </select>
+        </li>
+        <li class="menu">
+            <select class="show-dd form-select" name="asset" id="asset">
+                <option selected>Asset</option>
+            </select>
+        </li>
+        <li class="menu">
+            <select class="show-dd form-select" name="createdon" id="createdon">
+                <option selected>Created On</option>
+            </select>
+        </li>
+        <li class="menu">
+            <select class="show-dd form-select" name="createdby" id="createdby">
+                <option selected>Created By</option>
+                {% for item in createdby %}
+                <option>{{item}}</option>
+                {% endfor %}
+            </select>
+        </li>
+        <li class="menu">
+            <select class="show-dd form-select" name="status" id="status">
+                <option selected>Status</option>
+                {% for item in status %}
+                <option >{{item}}</option>
+                {% endfor %}
+            </select>
+        </li>
+    </ul>
+    <div style="width: 38%; float: left;" class="display"></div>
+    <div class="wodetails card" style="width: 60%;border: none; min-height: 100%; float: right;"></div>
+</div>
+<img src="" alt="">
+
+{%endblock%}
+
+{% block footer %}
+<script src="{% static 'javascript/show.js' %}"></script>
+{% endblock %}
